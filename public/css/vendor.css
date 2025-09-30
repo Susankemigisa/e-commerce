@@ -1,0 +1,160 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f3f3;
+  margin: 0;
+  padding: 20px;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.top-section {
+  display: flex;
+  gap: 20px;
+}
+
+/* Metrics cards (2x2) */
+/* Metrics cards grid */
+.metrics {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Regular metric card */
+.metric {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ddd;
+}
+
+/* Combined Sales + Orders card */
+.metric.double-card {
+  grid-column: span 2; /* takes full row */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 6px;
+  background: white;
+  border: 1px solid #ddd;
+}
+
+
+.metric.double-card .metric-half {
+  flex: 1;
+  text-align: center;
+}
+
+.metric.double-card .divider {
+  width: 1px;
+  background: #ddd;
+  margin: 0 20px;
+  align-self: stretch; /* makes it full height of the card */
+}
+
+
+/* Remaining card colors */
+.text-green { color: green; }
+.text-red { color: red; }
+
+
+/* Form Section */
+.form-section {
+  flex: 2;
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  max-width: 700px;
+}
+
+.form-section h3 {
+  margin-bottom: 15px;
+}
+
+.form-row {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row.double {
+  flex-direction: row;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Error messages */
+.error-msg {
+  font-size: 12px;
+  color: red;
+  display: block;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-save {
+  flex: 1;
+  padding: 10px;
+  background: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-clear {
+  flex: 1;
+  padding: 10px;
+  background: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Table Section */
+.table-section {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: black;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background: #f4f4f4;
+}

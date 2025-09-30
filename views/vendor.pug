@@ -1,0 +1,69 @@
+extends layout
+
+block content
+  .dashboard-container
+    .top-section
+      // Left Column - Metrics Cards
+      .metrics
+        // Combined Sales + Orders card
+        .metric.double-card
+          .metric-half
+            h2 UGX #{insights.totalRevenue.toLocaleString()}
+            span Sales
+          .divider
+          .metric-half
+            h2 UGX #{insights.expectedRevenue.toLocaleString()}
+            span Orders
+
+        // In Stock card
+        .metric
+          h2.text-green UGX #{insights.stockCapital.toLocaleString()}
+          span In stock
+
+        // Out of Stock card
+        .metric
+          h2.text-red #{insights.outOfStock}
+          span Out of stock
+
+      // Right Column - Add Product Form
+      .form-section
+        h3 Add Product
+        form#productForm(method="post" action="/addProduct" enctype="multipart/form-data")
+          .form-row
+            input(type="text" name="name" placeholder="Product Name")
+            small.error-msg Invalid field
+          .form-row
+            input(type="text" name="category" placeholder="Category")
+            small.error-msg Invalid field
+          .form-row
+            input(type="number" name="price" placeholder="Price")
+            small.error-msg Invalid field
+          .form-row
+            input(type="number" name="quantity" placeholder="Quantity")
+            small.error-msg Invalid field
+          .form-row.double
+            input(type="text" name="color" placeholder="Color")
+            input(type="file" name="image")
+            small.error-msg Invalid field
+          .buttons
+            button.btn-save(type="submit") SAVE
+            button.btn-clear(type="reset") CLEAR
+
+    // Bottom Section - Products Table
+    .table-section
+      table
+        thead
+          tr
+            th ID
+            th NAME
+            th CATEGORY
+            th PRICE (UGX)
+            th QUANTITY
+        tbody
+          each product in products
+            tr
+              td ##{product._id}
+              td #{product.name}
+              td #{product.category}
+              td #{product.price.toLocaleString()}
+              td #{product.quantity}
