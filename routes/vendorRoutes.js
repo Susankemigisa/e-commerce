@@ -2,8 +2,7 @@ const express = require("express");
 const router = express.Router();
 const session = require("express-session")
 const Product = require("../models/productsModel");
-const multer = require("multer");
-const path = require("path");
+
 
 // File upload setup
 const path = require("path");
