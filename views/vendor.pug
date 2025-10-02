@@ -30,21 +30,33 @@ block content
         h3 Add Product
         form#productForm(method="post" action="/addProduct" enctype="multipart/form-data")
           .form-row
-            input(type="text" name="name" placeholder="Product Name")
-            small.error-msg Invalid field
+            input(type="text" name="name" placeholder="Product Name" value=(formData && formData.name))
+            if errors && errors.name
+              small.error-msg= errors.name
+
           .form-row
-            input(type="text" name="category" placeholder="Category")
-            small.error-msg Invalid field
+            input(type="text" name="category" placeholder="Category" value=(formData && formData.category))
+            if errors && errors.category
+              small.error-msg= errors.category
+
           .form-row
-            input(type="number" name="price" placeholder="Price")
-            small.error-msg Invalid field
+            input(type="number" name="price" placeholder="Price" value=(formData && formData.price))
+            if errors && errors.price
+              small.error-msg= errors.price
+
           .form-row
-            input(type="number" name="quantity" placeholder="Quantity")
-            small.error-msg Invalid field
+            input(type="number" name="quantity" placeholder="Quantity" value=(formData && formData.quantity))
+            if errors && errors.quantity
+              small.error-msg= errors.quantity
+
           .form-row.double
-            input(type="text" name="color" placeholder="Color")
+            input(type="text" name="color" placeholder="Color" value=(formData && formData.color))
             input(type="file" name="image")
-            small.error-msg Invalid field
+            if errors && errors.color
+              small.error-msg= errors.color
+            if errors && errors.image
+              small.error-msg= errors.image
+
           .buttons
             button.btn-save(type="submit") SAVE
             button.btn-clear(type="reset") CLEAR
